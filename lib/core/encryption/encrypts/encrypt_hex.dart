@@ -1,4 +1,5 @@
 import 'package:converter_app/core/encryption/encrypts/abstract_encrypt.dart';
+import 'package:converter_app/core/encryption/encrypts/parsing_error.dart';
 import 'package:converter_app/core/encryption/enum_encryptionTypes.dart';
 import 'package:converter_app/core/encryption/encrypts/m_weights.dart';
 
@@ -17,12 +18,20 @@ class Hex extends Encrypt {
 
   static Hex? _parse(String text) {
     bool success = true;
+    String? missMatchCharacter;
+    int? missMatchIndex;
     // Is the expression within the scope of weights?
     for (int i = 0; i < text.length; i++) {
-      weightsMixin.w_hex.containsKey(text[i]) ? null : success = false;
+      if (!weightsMixin.w_hex.containsKey(text[i])) {
+        missMatchCharacter = text[i];
+        missMatchIndex = i;
+        success = false;
+        break;
+      }
     }
     return success
         ? Hex(text)
-        : throw Exception("Parsing error string->hex.\nTried to parse:$text");
+        : throw parsingError(text, EncryptionTypes.hex, weightsMixin.w_hex,
+            missMatchCharacter!, missMatchIndex!);
   }
 }

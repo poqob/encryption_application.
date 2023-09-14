@@ -14,5 +14,5 @@ abstract class Encrypt {
   Map<String, int> get getWeights => _weights;
   String get getEncrypt => _encryptedText!;
   set setEncrypt(String enc) => _encryptedText = enc;
-  String get getEncryptionType => _encryptionType.getType();
+  String get getEncryptionType => _encryptionType.name;
 }
