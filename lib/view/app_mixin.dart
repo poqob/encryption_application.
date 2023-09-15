@@ -1,4 +1,4 @@
-import 'package:converter_app/core/encryption/enum_algorithms.dart';
+import 'package:converter_app/core/specialTypeConverter/encryption/enum_algorithms.dart';
 import 'package:converter_app/view/app.dart';
 import 'package:flutter/material.dart';
 
