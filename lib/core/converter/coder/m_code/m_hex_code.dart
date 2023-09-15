@@ -1,28 +1,15 @@
-import 'dart:math';
-
-import 'package:converter_app/core/converter/m_binaries.dart';
+import 'package:converter_app/core/converter/coder/m_code/m_binary_code.dart';
 import 'package:converter_app/core/encryption/encrypts/encrypt_binary.dart';
 import 'package:converter_app/core/encryption/encrypts/encrypt_hex.dart';
-import 'package:converter_app/core/encryption/encrypts/m_weights.dart';
 
-mixin HexesMixin {
+mixin HexCode {
   static List<Hex> textToHex(String text) {
-    List<Binary> binaryList = BinariesMixin.textToBinary(text);
+    List<Binary> binaryList = BinaryCode.textToBinary(text);
     List<Hex> hexList = List.empty(growable: true);
     for (var element in binaryList) {
       hexList.add(_binaryToHex(element));
     }
     return hexList;
-  }
-
-  static String hexToCharacter(Hex hex) {
-    int ascii = 0;
-    String exprassion = hex.getEncrypt;
-    for (int i = 0; i < exprassion.length; i++) {
-      ascii += weightsMixin.w_hex[exprassion[i]]! *
-          pow(16, exprassion.length - 1 - i) as int;
-    }
-    return String.fromCharCode(ascii);
   }
 
   static Hex _binaryToHex(Binary binary) {

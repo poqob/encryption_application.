@@ -11,7 +11,7 @@ mixin AppMixin on State<MyHomePage> {
   void refleshResult() {
     result = "";
     algorithm.calculate(controller.text).forEach((element) {
-      result += " ${element.getEncrypt}";
+      result += " $element";
     });
   }
 

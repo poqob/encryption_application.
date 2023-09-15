@@ -1,21 +1,40 @@
-import 'package:converter_app/core/converter/convert2.dart';
-import 'package:converter_app/core/encryption/encrypts/abstract_encrypt.dart';
+import 'package:converter_app/core/converter/converter/binary_converter.dart';
+import 'package:converter_app/core/converter/converter/hex_converter.dart';
+import 'package:converter_app/core/converter/converter/octal_converter.dart';
 
 enum Algorithms {
   text2binary,
   text2octal,
   text2hex,
+  binary2text,
+  octal2text,
+  hex2text,
 }
 
 extension ExtensionAlghorithms on Algorithms {
-  List<Encrypt> calculate(String input) {
+  List<String> calculate(String input) {
     switch (index) {
       case 0:
-        return Convert2.textToBinary(input);
+        return BinaryConverter.defaultConverter()
+            .encode(input)
+            .map((e) => e.getEncrypt)
+            .toList();
       case 1:
-        return Convert2.textToOctal(input);
+        return OctalConverter.defaultConverter()
+            .encode(input)
+            .map((e) => e.getEncrypt)
+            .toList();
       case 2:
-        return Convert2.textToHex(input);
+        return HexConverter.defaultConverter()
+            .encode(input)
+            .map((e) => e.getEncrypt)
+            .toList();
+      case 3:
+        return BinaryConverter.defaultConverter().decode(input);
+      case 4:
+        return OctalConverter.defaultConverter().decode(input);
+      case 5:
+        return HexConverter.defaultConverter().decode(input);
       default:
         return [];
     }

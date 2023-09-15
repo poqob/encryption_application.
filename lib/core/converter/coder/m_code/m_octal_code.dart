@@ -1,28 +1,15 @@
-import 'dart:math';
-
-import 'package:converter_app/core/converter/m_binaries.dart';
+import 'package:converter_app/core/converter/coder/m_code/m_binary_code.dart';
 import 'package:converter_app/core/encryption/encrypts/encrypt_binary.dart';
 import 'package:converter_app/core/encryption/encrypts/encrypt_octal.dart';
-import 'package:converter_app/core/encryption/encrypts/m_weights.dart';
 
-mixin OctalsMixin {
+mixin OctalCode {
   static List<Octal> textToOctal(String text) {
-    List<Binary> binaryList = BinariesMixin.textToBinary(text);
+    List<Binary> binaryList = BinaryCode.textToBinary(text);
     List<Octal> octalList = List.empty(growable: true);
     for (var element in binaryList) {
       octalList.add(_binaryToOctal(element));
     }
     return octalList;
-  }
-
-  static String octalToCharacter(Octal octal) {
-    int ascii = 0;
-    String exprassion = octal.getEncrypt;
-    for (int i = 0; i < exprassion.length; i++) {
-      ascii += weightsMixin.w_octal[exprassion[i]]! *
-          pow(8, exprassion.length - 1 - i) as int;
-    }
-    return String.fromCharCode(ascii);
   }
 
   static Octal _binaryToOctal(Binary binary) {

@@ -1,10 +1,10 @@
 mixin weightsMixin {
-  static Map<String, int> w_binary = {
+  static Map<String, int> binaryWeights = {
     "0": 0,
     "1": 1,
   };
 
-  static Map<String, int> w_octal = {
+  static Map<String, int> octalWeights = {
     "0": 0,
     "1": 1,
     "2": 2,
@@ -15,7 +15,7 @@ mixin weightsMixin {
     "7": 7,
   };
 
-  static Map<String, int> w_hex = {
+  static Map<String, int> hexWeights = {
     "0": 0,
     "1": 1,
     "2": 2,

@@ -15,4 +15,9 @@ abstract class Encrypt {
   String get getEncrypt => _encryptedText!;
   set setEncrypt(String enc) => _encryptedText = enc;
   String get getEncryptionType => _encryptionType.name;
+
+  @override
+  String toString() {
+    return "type: ${_encryptionType.name}\nvalue:$_encryptedText";
+  }
 }
