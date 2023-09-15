@@ -10,9 +10,11 @@ mixin AppMixin on State<MyHomePage> {
 
   void refleshResult() {
     result = "";
-    algorithm.calculate(controller.text).forEach((element) {
-      result += " $element";
-    });
+    try {
+      algorithm.calculate(controller.text).forEach((element) {
+        result += " $element";
+      });
+    } catch (e) {}
   }
 
   @override
