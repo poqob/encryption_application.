@@ -1,6 +1,10 @@
-import 'package:converter_app/core/specialTypeConverter/encryption/encrypts/encrypt_octal.dart';
+import 'package:encrypt_bho/encrypt_bho.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  String expression = "01234567";
-  Octal hex = Octal.parse(expression);
+  String expression = "141 142 143";
+  test(
+      "test1",
+      () => expect(OctalConverter.defaultConverter().decode(expression),
+          ["a", "b", "c"]));
 }
