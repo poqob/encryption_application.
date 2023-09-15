@@ -1,6 +1,5 @@
 import 'package:converter_app/view/app.dart';
 import 'package:encrypt_bho/encrypt_bho.dart';
-
 import 'package:flutter/material.dart';
 
 mixin AppMixin on State<MyHomePage> {

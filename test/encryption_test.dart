@@ -4,7 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   String expression = "141 142 143";
   test(
-      "test1",
+      "converting",
       () => expect(OctalConverter.defaultConverter().decode(expression),
           ["a", "b", "c"]));
+
+  test("parsing", () => expect(Octal.parse("142").getEncrypt, "142"));
 }
