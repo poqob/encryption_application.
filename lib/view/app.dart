@@ -84,18 +84,20 @@ class _MyHomePageState extends State<MyHomePage> with AppMixin {
   AppBar appbar() {
     return AppBar(
       title: Expanded(
-        //TODO: The container will be clickable to manage text2form or form2text transformation.
-        child: Container(
-          decoration: BoxDecoration(
-            color: ConstantColors.appbar1.getColor,
-            borderRadius: BorderRadius.circular(5),
+        child: ElevatedButton(
+          onPressed: () => switchAlgorithm(),
+          child: Container(
+            decoration: BoxDecoration(
+              color: ConstantColors.appbar1.getColor,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: Text(
+                  ConstantTexts.appbar.get,
+                  style: const TextStyle(color: Colors.black),
+                )),
           ),
-          child: Padding(
-              padding: const EdgeInsets.all(5),
-              child: Text(
-                ConstantTexts.appbar.get,
-                style: const TextStyle(color: Colors.black),
-              )),
         ),
       ),
       actions: [
