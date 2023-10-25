@@ -1,6 +1,6 @@
 # converter_app
 
-A new Flutter project.
+This is an encryption app which encrypts user inputs. The app encrypts user inputs thanks to the [encrypt_bho](https://github.com/poqob/package_encrypt_bho)  package. 
 
 ## Getting Started
 
